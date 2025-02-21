@@ -1,0 +1,178 @@
+:root {
+  --shape: var(--star);
+  --col-max: 20vw;
+  --row-max: 10vw;
+}
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.25rem;
+  background: radial-gradient(
+    circle at 50% 100%,
+    #f7ff0a,
+    #ffd000,
+    #ffa026,
+    #ff7144,
+    #f9455b,
+    #d71c6d,
+    #ab0478,
+    #77107b
+  );
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  overflow: clip;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+input[type="text"] {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: inherit;
+  padding-left: 0.5ch;
+  padding-left: 0.5ch;
+  height: 2rem;
+  width: 100%;
+}
+button,
+input[type="submit"] {
+  font-size: inherit;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border: 0;
+  background: #999;
+  border-radius: 0.25rem;
+  color: white;
+  height: 2rem;
+  cursor: pointer;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+button:hover,
+input[type="submit"]:hover {
+  background: #000;
+}
+
+form {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 50ch;
+  padding: 1.5rem;
+}
+
+.form-content {
+  border-radius: 10px;
+  background: #fff;
+  gap: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  box-shadow: 0px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    0px 6.7px 5.3px rgba(0, 0, 0, 0.028), 0px 12.5px 10px rgba(0, 0, 0, 0.035),
+    0px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+    0px 41.8px 33.4px rgba(0, 0, 0, 0.05), 0px 100px 80px rgba(0, 0, 0, 0.07);
+}
+.form-content > *:first-child {
+  margin-top: 0;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem 1rem;
+}
+@media (min-width: 600px) {
+  .field {
+    align-items: center;
+    flex-direction: row;
+  }
+}
+.field label {
+  flex: 1;
+}
+@media (min-width: 600px) {
+  .field label {
+    flex: 0 0 100px;
+  }
+}
+
+.shapes {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--col-max), 2fr));
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  height: 100vh;
+  width: 100vw;
+  transform: translate(-50%, -50%) rotate(12deg);
+  align-items: end;
+  justify-content: stretch;
+}
+@media (min-width: 600px) {
+  .shapes {
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 200vw;
+  }
+}
+
+.shapes > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shapes > div > div {
+  display: flex;
+  filter: drop-shadow(0.0625em 0.0625em 5px rgba(0, 0, 0, 0.4));
+  position: relative;
+  font-size: calc(var(--size) * 0.2vw);
+  width: 1em;
+  height: 1em;
+}
+.shapes > div > div::before {
+  position: absolute;
+  content: "";
+  aspect-ratio: 1;
+  background: var(--fg);
+  clip-path: var(--shape);
+  width: 1em;
+  transform: rotate(calc(1deg * var(--deg)));
+}
+
+/*prettier-ignore*/
+:root {
+  --star: polygon(50% 0, 79% 90%, 2% 35%, 98% 35%, 21% 90%);
+  --bolt: polygon( 100% 0, 23% 46%, 46% 44%, 15% 69%, 38% 67%, 0 100%, 76% 57%, 53% 58%, 88% 33%, 60% 37%);
+  --brst: polygon( 100% 50%, 78.98% 57.76%, 93.3% 75%, 71.21% 71.21%, 75% 93.3%, 57.76% 78.98%, 50% 100%, 42.24% 78.98%, 25% 93.3%, 28.79% 71.21%, 6.7% 75%, 21.02% 57.76%, 0% 50%, 21.02% 42.24%, 6.7% 25%, 28.79% 28.79%, 25% 6.7%, 42.24% 21.02%, 50% 0%, 57.76% 21.02%, 75% 6.7%, 71.21% 28.79%, 93.3% 25%, 78.98% 42.24%);
+
+  --mistyrose: rgba(255, 228, 225, .25);
+  --antiquewhite: rgba(250, 235, 215, .25);
+  --linen: rgba(250, 240, 230, .25);
+  --beige: rgba(211, 211, 175, 0.25);
+  --whitesmoke: rgba(245, 245, 245, .25);
+  --lavenderblush: rgba(255, 240, 245, .25);
+  --oldlace: rgba(253, 245, 230, .25);
+  --aliceblue: rgba(240, 248, 255, .25);
+  --seashell: rgba(255, 245, 238, .25);
+  --ghostwhite: rgba(248, 248, 255, .25);
+  --honeydew: rgba(240, 255, 240, .25);
+  --floralwhite: rgba(255, 250, 240, .25);
+  --azure: rgba(240, 255, 255, .25);
+  --mintcream: rgba(245, 255, 250, .25);
+  --snow: rgba(255, 250, 250, .25);
+  --ivory: rgba(255, 255, 240, .25);
+  --white: rgba(255, 255, 255, .25);
+  
+
+}
